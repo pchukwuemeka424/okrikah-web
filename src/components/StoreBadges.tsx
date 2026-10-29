@@ -6,33 +6,35 @@ type Props = {
 };
 
 export function StoreBadges({ className = '', size = 'md' }: Props) {
-  const h = size === 'lg' ? 'h-14' : 'h-12';
+  const h = size === 'lg' ? 'h-12 sm:h-14' : 'h-11 sm:h-12';
+  const pad = size === 'lg' ? 'px-3.5 sm:px-4' : 'px-3 sm:px-4';
+  const title = size === 'lg' ? 'text-[15px] sm:text-[17px]' : 'text-[15px] sm:text-[16px]';
 
   return (
-    <div className={`flex flex-wrap items-center gap-3 ${className}`}>
+    <div className={`flex w-full flex-col gap-3 min-[380px]:flex-row min-[380px]:flex-wrap ${className}`}>
       <a
         href={SITE.appStoreUrl}
         aria-label="Download on the App Store"
-        className={`${h} inline-flex items-center gap-3 rounded-xl bg-ink px-4 text-white transition hover:bg-navy-deep`}
+        className={`${h} ${pad} inline-flex w-full min-w-0 items-center justify-center gap-2.5 rounded-xl bg-ink text-white transition hover:bg-navy-deep min-[380px]:w-auto`}
       >
-        <AppleLogo className="h-7 w-7 shrink-0" />
+        <AppleLogo className="h-6 w-6 shrink-0 sm:h-7 sm:w-7" />
         <span className="flex flex-col leading-tight text-left">
           <span className="text-[10px] font-medium tracking-wide opacity-80">
             Download on the
           </span>
-          <span className="text-[17px] font-semibold tracking-tight">App Store</span>
+          <span className={`${title} font-semibold tracking-tight`}>App Store</span>
         </span>
       </a>
 
       <a
         href={SITE.playStoreUrl}
         aria-label="Get it on Google Play"
-        className={`${h} inline-flex items-center gap-3 rounded-xl border border-line-strong bg-surface px-4 text-ink transition hover:border-navy hover:bg-navy-soft`}
+        className={`${h} ${pad} inline-flex w-full min-w-0 items-center justify-center gap-2.5 rounded-xl border border-line-strong bg-surface text-ink transition hover:border-navy hover:bg-navy-soft min-[380px]:w-auto`}
       >
-        <GooglePlayLogo className="h-7 w-7 shrink-0" />
+        <GooglePlayLogo className="h-6 w-6 shrink-0 sm:h-7 sm:w-7" />
         <span className="flex flex-col leading-tight text-left">
           <span className="text-[10px] font-medium tracking-wide text-muted">GET IT ON</span>
-          <span className="text-[17px] font-semibold tracking-tight">Google Play</span>
+          <span className={`${title} font-semibold tracking-tight`}>Google Play</span>
         </span>
       </a>
     </div>

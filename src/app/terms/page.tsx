@@ -3,15 +3,17 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
-  description: `Terms of use for the ${SITE.name} fashion marketplace.`,
+  description: `Terms of use for the ${SITE.name} fashion marketplace, owned by ${SITE.owner}.`,
+  authors: [{ name: SITE.owner }],
+  creator: SITE.owner,
 };
 
 export default function TermsPage() {
   return (
     <div className="border-b border-line bg-surface">
-      <div className="mx-auto max-w-3xl px-5 py-16">
+      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">Legal</p>
-        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink">
+        <h1 className="mt-3 font-display text-[2rem] font-semibold tracking-tight text-ink sm:text-4xl">
           Terms & Conditions
         </h1>
         <p className="mt-3 text-sm font-medium text-muted">Last updated {SITE.updated}</p>

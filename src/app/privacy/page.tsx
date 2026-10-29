@@ -4,15 +4,17 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: `How ${SITE.name} collects, uses, and protects your information.`,
+  description: `How ${SITE.name}, owned by ${SITE.owner}, collects, uses, and protects your information.`,
+  authors: [{ name: SITE.owner }],
+  creator: SITE.owner,
 };
 
 export default function PrivacyPage() {
   return (
     <div className="border-b border-line bg-surface">
-      <div className="mx-auto max-w-3xl px-5 py-16">
+      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">Legal</p>
-        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink">
+        <h1 className="mt-3 font-display text-[2rem] font-semibold tracking-tight text-ink sm:text-4xl">
           Privacy Policy
         </h1>
         <p className="mt-3 text-sm font-medium text-muted">Last updated {SITE.updated}</p>
@@ -20,8 +22,12 @@ export default function PrivacyPage() {
         <div className="legal-prose mt-10">
           <h2>Who we are</h2>
           <p>
-            {SITE.name} (“we”, “us”) is a marketplace for buying and selling fashion in Nigeria.
-            This policy explains what information we collect and how we use it when you use the{' '}
+            {SITE.name} (“we”, “us”) is a marketplace for buying and selling fashion in Nigeria,
+            owned and operated by {SITE.owner} ({SITE.company}). Visit{' '}
+            <a href={SITE.companyUrl} target="_blank" rel="noopener noreferrer">
+              {SITE.companyUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+            </a>
+            . This policy explains what information we collect and how we use it when you use the{' '}
             {SITE.name} app.
           </p>
 

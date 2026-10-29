@@ -3,11 +3,29 @@ export const SITE = {
   tagline: 'Buy. Sell. Offer.',
   description:
     'Discover vintage and second-hand fashion — thrift clothing, wigs, bags, shoes and accessories from trusted sellers across Nigeria.',
+  owner: 'Prince Chukwuemeka',
+  company: 'AceHub Technologies Ltd',
+  companyUrl: 'https://acehubtechnologiesltd.co.uk/',
   contactEmail: 'contact@okrikah.shop',
   appStoreUrl: process.env.NEXT_PUBLIC_APP_STORE_URL || '#download',
   playStoreUrl: process.env.NEXT_PUBLIC_PLAY_STORE_URL || '#download',
   updated: '26 September 2026',
+  keywords: [
+    'Okrikah',
+    'Prince Chukwuemeka',
+    'AceHub Technologies Ltd',
+    'Nigerian thrift',
+    'fashion marketplace',
+    'second-hand fashion Nigeria',
+    'buy sell thrift',
+    'okrika fashion',
+    'wigs bags shoes Nigeria',
+  ],
 } as const;
+
+export function getSiteUrl() {
+  return (process.env.NEXT_PUBLIC_SITE_URL || 'https://okrikah.app').replace(/\/$/, '');
+}
 
 export const FEATURES = [
   {

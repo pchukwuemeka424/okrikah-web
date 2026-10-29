@@ -6,17 +6,20 @@ import { SITE } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Delete account',
   description: `Permanently delete your ${SITE.name} account by entering your email and confirming.`,
+  authors: [{ name: SITE.owner }],
+  creator: SITE.owner,
+  robots: { index: false, follow: true },
 };
 
 export default function AccountDeletionPage() {
   return (
     <div className="border-b border-line bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 lg:grid-cols-[1fr_1.05fr] lg:items-start">
-        <div>
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:gap-12 sm:px-5 sm:py-16 lg:grid-cols-[1fr_1.05fr] lg:items-start">
+        <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
             Account & data
           </p>
-          <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink">
+          <h1 className="mt-3 font-display text-[2rem] font-semibold tracking-tight text-ink sm:text-4xl">
             Delete your account
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-slate">

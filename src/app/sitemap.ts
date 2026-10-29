@@ -1,0 +1,33 @@
+import type { MetadataRoute } from 'next';
+import { getSiteUrl } from '@/lib/site';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = getSiteUrl();
+
+  return [
+    {
+      url: siteUrl,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    {
+      url: `${siteUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${siteUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${siteUrl}/account-deletion`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+  ];
+}

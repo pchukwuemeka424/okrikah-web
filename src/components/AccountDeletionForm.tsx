@@ -78,7 +78,7 @@ export function AccountDeletionForm() {
 
   if (step === 'done') {
     return (
-      <div className="rounded-3xl border border-line bg-bg p-8 sm:p-10">
+      <div className="rounded-2xl border border-line bg-bg p-6 sm:rounded-3xl sm:p-10">
         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-navy-soft text-navy">
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 6 9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
@@ -103,7 +103,7 @@ export function AccountDeletionForm() {
     <>
       <form
         onSubmit={openConfirmation}
-        className="rounded-3xl border border-line bg-bg p-8 sm:p-10"
+        className="rounded-2xl border border-line bg-bg p-6 sm:rounded-3xl sm:p-10"
         noValidate
       >
         <h2 className="font-display text-2xl font-semibold text-ink">Enter your account email</h2>

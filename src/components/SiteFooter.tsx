@@ -6,10 +6,27 @@ import { SITE } from '@/lib/site';
 export function SiteFooter() {
   return (
     <footer className="border-t border-line bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.2fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-5 sm:py-14 md:grid-cols-[1.2fr_1fr_1fr]">
         <div className="space-y-4">
-          <Image src="/brand/logo.png" alt={SITE.name} width={160} height={42} className="h-9 w-auto" />
+          <Image
+            src="/brand/logo.png"
+            alt={SITE.name}
+            width={160}
+            height={42}
+            className="h-8 w-auto sm:h-9"
+          />
           <p className="max-w-sm text-sm leading-relaxed text-slate">{SITE.description}</p>
+          <p className="text-sm font-medium text-ink">
+            Owned &amp; operated by {SITE.owner} ·{' '}
+            <a
+              href={SITE.companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-navy underline underline-offset-2 hover:text-navy-deep"
+            >
+              {SITE.company}
+            </a>
+          </p>
           <StoreBadges />
         </div>
 
@@ -57,8 +74,18 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <a href={`mailto:${SITE.contactEmail}`} className="hover:text-navy">
+              <a href={`mailto:${SITE.contactEmail}`} className="break-all hover:text-navy">
                 {SITE.contactEmail}
+              </a>
+            </li>
+            <li>
+              <a
+                href={SITE.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-navy"
+              >
+                AceHub Technologies
               </a>
             </li>
           </ul>
@@ -66,9 +93,17 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-line">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-5">
           <p>
-            © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+            © {new Date().getFullYear()} {SITE.name}. Owned by {SITE.owner}.{' '}
+            <a
+              href={SITE.companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-navy"
+            >
+              {SITE.company}
+            </a>
           </p>
           <p>{SITE.tagline}</p>
         </div>
