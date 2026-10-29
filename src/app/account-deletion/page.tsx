@@ -5,7 +5,7 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Delete account',
-  description: `Permanently delete your ${SITE.name} account by verifying your email.`,
+  description: `Permanently delete your ${SITE.name} account by entering your email and confirming.`,
 };
 
 export default function AccountDeletionPage() {
@@ -28,7 +28,7 @@ export default function AccountDeletionPage() {
             <p className="text-sm font-semibold text-crimson">Before you continue</p>
             <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink/80">
               <li>Finish or cancel any open orders first.</li>
-              <li>You will need access to the email on your account.</li>
+              <li>Enter the email on your account, then confirm in the popup.</li>
               <li>Deleted accounts cannot be recovered.</li>
             </ul>
           </div>

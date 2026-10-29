@@ -42,7 +42,7 @@ NEXT_PUBLIC_APP_STORE_URL=https://apps.apple.com/app/idXXXXXXXX
 NEXT_PUBLIC_PLAY_STORE_URL=https://play.google.com/store/apps/details?id=com.okrikah.app
 ```
 
-Account deletion uses the `web-delete-account` Edge Function (email confirmation code via Resend).
+Account deletion uses the `web-delete-account` Edge Function (email + confirmation popup, no verification code).
 
 Point the Expo app at the hosted legal pages with:
 
