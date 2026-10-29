@@ -41,7 +41,7 @@ export default function HomePage() {
               {SITE.description}
             </p>
             <p className="mt-3 text-sm text-white/70">
-              Owned by {SITE.owner} ·{' '}
+              Owned by{' '}
               <a
                 href={SITE.companyUrl}
                 target="_blank"
@@ -81,7 +81,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-slate sm:text-base">
               Okrikah connects thrift hunters and sellers with listings, offers, shops, and a
-              style feed — built for Nigeria by {SITE.owner}.
+              style feed — built for Nigeria by {SITE.company}.
             </p>
           </div>
 

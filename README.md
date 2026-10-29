@@ -9,7 +9,7 @@ Next.js site for the public home page, privacy policy, terms, and account deleti
 |------|---------|
 | `/` | Landing — features, screenshots, App Store & Google Play badges |
 | `/privacy` | Privacy Policy |
-| `/account-deletion` | Email + code form to permanently delete an account |
+| `/account-deletion` | Email form to verify and permanently delete an account |
 | `/terms` | Terms & Conditions |
 
 ## Run locally
@@ -42,7 +42,7 @@ NEXT_PUBLIC_APP_STORE_URL=https://apps.apple.com/app/idXXXXXXXX
 NEXT_PUBLIC_PLAY_STORE_URL=https://play.google.com/store/apps/details?id=com.okrikah.app
 ```
 
-Account deletion uses the `web-delete-account` Edge Function (email + confirmation popup, no verification code).
+Account deletion uses the `web-delete-account` Edge Function (checks the email exists, then confirmation popup, no verification code).
 
 Point the Expo app at the hosted legal pages with:
 

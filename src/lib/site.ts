@@ -3,7 +3,7 @@ export const SITE = {
   tagline: 'Buy. Sell. Offer.',
   description:
     'Discover vintage and second-hand fashion — thrift clothing, wigs, bags, shoes and accessories from trusted sellers across Nigeria.',
-  owner: 'Prince Chukwuemeka',
+  owner: 'AceHub Technologies Ltd',
   company: 'AceHub Technologies Ltd',
   companyUrl: 'https://acehubtechnologiesltd.co.uk/',
   contactEmail: 'contact@okrikah.shop',
@@ -12,7 +12,6 @@ export const SITE = {
   updated: '26 September 2026',
   keywords: [
     'Okrikah',
-    'Prince Chukwuemeka',
     'AceHub Technologies Ltd',
     'Nigerian thrift',
     'fashion marketplace',

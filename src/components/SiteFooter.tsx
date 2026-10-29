@@ -17,7 +17,7 @@ export function SiteFooter() {
           />
           <p className="max-w-sm text-sm leading-relaxed text-slate">{SITE.description}</p>
           <p className="text-sm font-medium text-ink">
-            Owned &amp; operated by {SITE.owner} ·{' '}
+            Owned &amp; operated by{' '}
             <a
               href={SITE.companyUrl}
               target="_blank"
@@ -85,7 +85,7 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 className="hover:text-navy"
               >
-                AceHub Technologies
+                {SITE.company}
               </a>
             </li>
           </ul>
@@ -95,7 +95,7 @@ export function SiteFooter() {
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-5">
           <p>
-            © {new Date().getFullYear()} {SITE.name}. Owned by {SITE.owner}.{' '}
+            © {new Date().getFullYear()} {SITE.name}. Owned by{' '}
             <a
               href={SITE.companyUrl}
               target="_blank"
@@ -104,6 +104,7 @@ export function SiteFooter() {
             >
               {SITE.company}
             </a>
+            .
           </p>
           <p>{SITE.tagline}</p>
         </div>

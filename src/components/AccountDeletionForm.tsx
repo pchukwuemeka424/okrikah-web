@@ -33,7 +33,7 @@ export function AccountDeletionForm() {
     };
   }, [confirmOpen]);
 
-  function openConfirmation(event: FormEvent) {
+  async function openConfirmation(event: FormEvent) {
     event.preventDefault();
     setError('');
     const normalized = email.trim().toLowerCase();
@@ -41,9 +41,22 @@ export function AccountDeletionForm() {
       setError('Enter a valid email address.');
       return;
     }
-    setEmail(normalized);
-    setConfirmText('');
-    setConfirmOpen(true);
+
+    setLoading(true);
+    try {
+      const result = await callDeletionApi(normalized, { checkOnly: true });
+      if (result.error) {
+        setError(result.error);
+        return;
+      }
+      setEmail(normalized);
+      setConfirmText('');
+      setConfirmOpen(true);
+    } catch {
+      setError('Could not verify that account. Try again.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   function closeConfirmation() {
@@ -62,7 +75,7 @@ export function AccountDeletionForm() {
 
     setLoading(true);
     try {
-      const result = await callDeletionApi(email);
+      const result = await callDeletionApi(email, { checkOnly: false });
       if (result.error) {
         setError(result.error);
         return;
@@ -131,7 +144,7 @@ export function AccountDeletionForm() {
           disabled={loading}
           className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-full bg-crimson px-5 text-sm font-semibold text-white transition hover:bg-[#a50d26] disabled:opacity-60"
         >
-          Continue to delete account
+          {loading ? 'Checking account…' : 'Continue to delete account'}
         </button>
       </form>
 
@@ -205,7 +218,10 @@ function ErrorBanner({ message }: { message: string }) {
   );
 }
 
-async function callDeletionApi(email: string): Promise<ApiResult> {
+async function callDeletionApi(
+  email: string,
+  options: { checkOnly: boolean },
+): Promise<ApiResult> {
   const base = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, '');
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!base || !anon) {
@@ -219,7 +235,7 @@ async function callDeletionApi(email: string): Promise<ApiResult> {
       Authorization: `Bearer ${anon}`,
       apikey: anon,
     },
-    body: JSON.stringify({ email }),
+    body: JSON.stringify({ email, checkOnly: options.checkOnly }),
   });
 
   const data = (await response.json().catch(() => null)) as ApiResult | null;

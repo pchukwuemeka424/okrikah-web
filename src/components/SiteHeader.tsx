@@ -115,7 +115,7 @@ export function SiteHeader() {
               Terms
             </Link>
             <p className="mt-3 px-3 text-xs leading-relaxed text-muted">
-              Owned by {SITE.owner} ·{' '}
+              Owned by{' '}
               <a
                 href={SITE.companyUrl}
                 target="_blank"
