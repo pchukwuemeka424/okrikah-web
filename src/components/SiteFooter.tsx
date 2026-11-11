@@ -16,17 +16,6 @@ export function SiteFooter() {
             className="h-8 w-auto sm:h-9"
           />
           <p className="max-w-sm text-sm leading-relaxed text-slate">{SITE.description}</p>
-          <p className="text-sm font-medium text-ink">
-            Owned &amp; operated by{' '}
-            <a
-              href={SITE.companyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-navy underline underline-offset-2 hover:text-navy-deep"
-            >
-              {SITE.company}
-            </a>
-          </p>
           <StoreBadges />
         </div>
 
@@ -70,22 +59,12 @@ export function SiteFooter() {
             </li>
             <li>
               <Link href="/account-deletion" className="hover:text-navy">
-                Account deletion
+                Delete account
               </Link>
             </li>
             <li>
               <a href={`mailto:${SITE.contactEmail}`} className="break-all hover:text-navy">
                 {SITE.contactEmail}
-              </a>
-            </li>
-            <li>
-              <a
-                href={SITE.companyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-navy"
-              >
-                {SITE.company}
               </a>
             </li>
           </ul>
@@ -95,7 +74,7 @@ export function SiteFooter() {
       <div className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-5">
           <p>
-            © {new Date().getFullYear()} {SITE.name}. Owned by{' '}
+            © {new Date().getFullYear()} {SITE.name} by{' '}
             <a
               href={SITE.companyUrl}
               target="_blank"

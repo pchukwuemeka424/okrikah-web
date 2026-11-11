@@ -15,54 +15,45 @@ export default function HomePage() {
             alt="Flat-lay fashion pieces for the Okrikah marketplace"
             fill
             priority
+            fetchPriority="high"
             className="object-cover object-center"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-ink/55" />
+          {/* Left-weighted scrim keeps headline readable over the full-bleed photo */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/88 via-ink/72 to-ink/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/25" />
         </div>
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:gap-12 sm:px-5 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
-          <div className="min-w-0 text-white">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75 sm:mb-4 sm:text-xs sm:tracking-[0.18em]">
-              Nigerian fashion resale
-            </p>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:gap-12 sm:px-5 sm:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:py-28">
+          <div className="hero-copy min-w-0 text-white">
             <Image
               src="/brand/logo.png"
               alt={SITE.name}
-              width={220}
-              height={58}
-              className="mb-4 h-10 w-auto brightness-0 invert sm:mb-5 sm:h-12"
+              width={240}
+              height={64}
+              className="mb-6 h-11 w-auto brightness-0 invert sm:mb-7 sm:h-14"
               priority
             />
-            <h1 className="font-display text-[2rem] font-semibold leading-tight tracking-tight sm:text-5xl lg:text-[3.4rem]">
-              {SITE.tagline}
+            <h1 className="font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.75rem] lg:text-[3.25rem]">
+              Do You Sell Thriftwear, Wigs, Bags or Shoes?
             </h1>
-            <p className="mt-4 max-w-xl text-[0.95rem] leading-relaxed text-white/85 sm:mt-5 sm:text-lg">
-              {SITE.description}
+            <p className="mt-5 max-w-xl font-display text-xl font-medium leading-snug text-white sm:mt-6 sm:text-2xl">
+              Take your business online with Ọkrikah!
             </p>
-            <p className="mt-3 text-sm text-white/70">
-              Owned by{' '}
-              <a
-                href={SITE.companyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 hover:text-white"
-              >
-                {SITE.company}
-              </a>
+            <p className="mt-4 max-w-lg text-[0.98rem] leading-relaxed text-white/88 sm:text-lg">
+              Create your online store, showcase your products, and connect with customers
+              looking to shop. Download the Ọkrikah app, register your business, and start
+              selling today!
             </p>
-            <div id="download" className="mt-7 scroll-mt-28 sm:mt-8">
+            <div id="download" className="mt-8 scroll-mt-28 sm:mt-9">
               <StoreBadges size="lg" />
             </div>
-            <p className="mt-4 text-sm text-white/65">
-              Available on iOS and Android. Free to browse — sellers set up a shop in minutes.
-            </p>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[300px]">
+          <div className="hero-device relative mx-auto w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[300px]">
             <PhoneShot
-              src="/screenshots/home.png"
-              alt="Okrikah home screen"
+              src="/screenshots/sell.png"
+              alt="Create a shop and sell on Okrikah"
               priority
               className="max-w-none"
             />
@@ -173,14 +164,8 @@ export default function HomePage() {
                   Privacy Policy
                 </Link>
                 <Link
-                  href="/account-deletion"
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-line-strong bg-surface px-5 text-sm font-semibold text-ink hover:border-navy hover:bg-navy-soft"
-                >
-                  Delete account
-                </Link>
-                <Link
                   href="/terms"
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-transparent px-5 text-sm font-semibold text-slate hover:text-navy"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-line-strong bg-surface px-5 text-sm font-semibold text-ink hover:border-navy hover:bg-navy-soft"
                 >
                   Terms
                 </Link>

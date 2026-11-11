@@ -9,7 +9,6 @@ const NAV = [
   { href: '/#features', label: 'Features' },
   { href: '/#screens', label: 'App' },
   { href: '/privacy', label: 'Privacy' },
-  { href: '/account-deletion', label: 'Delete account' },
 ] as const;
 
 export function SiteHeader() {
@@ -114,17 +113,6 @@ export function SiteHeader() {
             >
               Terms
             </Link>
-            <p className="mt-3 px-3 text-xs leading-relaxed text-muted">
-              Owned by{' '}
-              <a
-                href={SITE.companyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-navy underline underline-offset-2"
-              >
-                {SITE.company}
-              </a>
-            </p>
           </nav>
         </div>
       ) : null}
