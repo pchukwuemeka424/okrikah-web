@@ -38,8 +38,8 @@ Create `website/.env.local`:
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-NEXT_PUBLIC_APP_STORE_URL=https://apps.apple.com/app/idXXXXXXXX
-NEXT_PUBLIC_PLAY_STORE_URL=https://play.google.com/store/apps/details?id=com.okrikah.app
+NEXT_PUBLIC_APP_STORE_URL=https://apps.apple.com/ca/app/okrikah/id6829230872
+NEXT_PUBLIC_PLAY_STORE_URL=https://play.google.com/store/apps/details?id=com.okrikah.app&hl=en
 ```
 
 Account deletion uses the `web-delete-account` Edge Function (checks the email exists, then confirmation popup, no verification code).

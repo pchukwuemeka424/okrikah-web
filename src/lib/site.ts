@@ -7,8 +7,12 @@ export const SITE = {
   company: 'AceHub Technologies Ltd',
   companyUrl: 'https://acehubtechnologiesltd.co.uk/',
   contactEmail: 'contact@okrikah.shop',
-  appStoreUrl: process.env.NEXT_PUBLIC_APP_STORE_URL || '#download',
-  playStoreUrl: process.env.NEXT_PUBLIC_PLAY_STORE_URL || '#download',
+  appStoreUrl:
+    process.env.NEXT_PUBLIC_APP_STORE_URL ||
+    'https://apps.apple.com/ca/app/okrikah/id6829230872',
+  playStoreUrl:
+    process.env.NEXT_PUBLIC_PLAY_STORE_URL ||
+    'https://play.google.com/store/apps/details?id=com.okrikah.app&hl=en',
   updated: '26 September 2026',
   keywords: [
     'Okrikah',
