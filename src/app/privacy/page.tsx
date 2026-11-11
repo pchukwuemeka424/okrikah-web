@@ -1,15 +1,24 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { BreadcrumbJsonLd } from '@/components/BreadcrumbJsonLd';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: `How ${SITE.name} collects, uses, shares, and protects your personal information, and how you can delete your account.`,
+  description: `How ${SITE.brandName} collects, uses, shares, and protects your personal information on okrikah.com and okrikah.shop, and how you can delete your account.`,
+  alternates: { canonical: '/privacy' },
+  openGraph: {
+    title: `Privacy Policy · ${SITE.brandName}`,
+    description: `How ${SITE.brandName} handles personal data for buyers and sellers.`,
+    url: '/privacy',
+    type: 'website',
+  },
 };
 
 export default function PrivacyPage() {
   return (
     <div className="border-b border-line bg-surface">
+      <BreadcrumbJsonLd items={[{ name: 'Privacy Policy', path: '/privacy' }]} />
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">Legal</p>
         <h1 className="mt-3 font-display text-[2rem] font-semibold tracking-tight text-ink sm:text-4xl">

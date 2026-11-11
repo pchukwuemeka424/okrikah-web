@@ -5,9 +5,10 @@ import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Delete account',
-  description: `Permanently delete your ${SITE.name} account by entering your email and confirming.`,
+  description: `Permanently delete your ${SITE.brandName} account by entering your email and confirming.`,
   authors: [{ name: SITE.owner }],
   creator: SITE.owner,
+  alternates: { canonical: '/account-deletion' },
   robots: { index: false, follow: true },
 };
 

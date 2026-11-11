@@ -28,27 +28,36 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 };
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${SITE.name} — ${SITE.tagline} | by ${SITE.owner}`,
-    template: `%s · ${SITE.name}`,
+    default: SITE.title,
+    template: `%s · ${SITE.brandName}`,
   },
   description: SITE.description,
-  applicationName: SITE.name,
+  applicationName: SITE.brandName,
   authors: [{ name: SITE.owner, url: SITE.companyUrl }],
   creator: SITE.owner,
   publisher: SITE.company,
   keywords: [...SITE.keywords],
   category: 'shopping',
+  classification: 'Fashion marketplace',
+  referrer: 'origin-when-cross-origin',
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: SITE.title,
     description: SITE.description,
     url: siteUrl,
-    siteName: SITE.name,
+    siteName: SITE.brandName,
     locale: 'en_NG',
     type: 'website',
     images: [
@@ -56,13 +65,13 @@ export const metadata: Metadata = {
         url: '/images/marketing-hero.jpg',
         width: 1200,
         height: 630,
-        alt: `${SITE.name} fashion marketplace by ${SITE.owner}`,
+        alt: `${SITE.brandName}: sell thriftwear, wigs, bags and shoes online in Nigeria`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: SITE.title,
     description: SITE.description,
     creator: SITE.owner,
     images: ['/images/marketing-hero.jpg'],
@@ -78,6 +87,11 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+  verification: googleVerification
+    ? {
+        google: googleVerification,
+      }
+    : undefined,
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -90,14 +104,18 @@ export const metadata: Metadata = {
   },
   other: {
     'og:email': SITE.contactEmail,
+    'og:locale:alternate': 'en',
     owner: SITE.owner,
     copyright: `${SITE.owner}`,
+    'geo.region': 'NG',
+    'geo.placename': 'Nigeria',
+    'application-name': SITE.brandName,
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-NG" suppressHydrationWarning>
       <body className={`${outfit.variable} ${fraunces.variable} min-h-screen antialiased`}>
         <JsonLd />
         <SiteHeader />

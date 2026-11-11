@@ -1,9 +1,23 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FeatureIcon } from '@/components/FeatureIcon';
 import { PhoneShot } from '@/components/PhoneShot';
 import { StoreBadges } from '@/components/StoreBadges';
-import { FEATURES, SCREENSHOTS, SITE } from '@/lib/site';
+import { FEATURES, SCREENSHOTS, SELLER_QUESTIONS, SELLER_STEPS, SITE } from '@/lib/site';
+
+export const metadata: Metadata = {
+  title: {
+    absolute: SITE.title,
+  },
+  description: SITE.description,
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: SITE.title,
+    description: SITE.description,
+    url: '/',
+  },
+};
 
 export default function HomePage() {
   return (
@@ -12,7 +26,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <Image
             src="/images/marketing-hero.jpg"
-            alt="Flat-lay fashion pieces for the Okrikah marketplace"
+            alt="Thriftwear, jeans, and sneakers styled for the Ọkrikah fashion marketplace in Nigeria"
             fill
             priority
             fetchPriority="high"
@@ -28,7 +42,7 @@ export default function HomePage() {
           <div className="hero-copy min-w-0 text-white">
             <Image
               src="/brand/logo.png"
-              alt={SITE.name}
+              alt={SITE.brandName}
               width={240}
               height={64}
               className="mb-6 h-11 w-auto brightness-0 invert sm:mb-7 sm:h-14"
@@ -53,11 +67,38 @@ export default function HomePage() {
           <div className="hero-device relative mx-auto w-full max-w-[220px] sm:max-w-[260px] lg:max-w-[300px]">
             <PhoneShot
               src="/screenshots/sell.png"
-              alt="Create a shop and sell on Okrikah"
+              alt="Create a shop and sell thriftwear on the Ọkrikah app"
               priority
               className="max-w-none"
             />
           </div>
+        </div>
+      </section>
+
+      <section id="sell-steps" className="scroll-mt-20 border-b border-line bg-bg-alt">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-5 sm:py-20">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+              Start selling
+            </p>
+            <h2 className="mt-3 font-display text-[1.75rem] font-semibold tracking-tight text-ink sm:text-4xl">
+              From download to your first customers
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate sm:text-base">
+              Ọkrikah helps thrift sellers in Nigeria open an online store and reach shoppers
+              looking for fashion, wigs, bags, and shoes.
+            </p>
+          </div>
+
+          <ol className="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+            {SELLER_STEPS.map((step, index) => (
+              <li key={step.title} className="min-w-0">
+                <p className="font-display text-3xl font-semibold text-navy/25">{index + 1}</p>
+                <h3 className="mt-3 text-lg font-semibold text-ink">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate">{step.body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -71,8 +112,8 @@ export default function HomePage() {
               Everything you need to buy and sell fashion
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-slate sm:text-base">
-              Okrikah connects thrift hunters and sellers with listings, offers, shops, and a
-              style feed — built for Nigeria by {SITE.company}.
+              Ọkrikah connects thrift hunters and sellers with listings, offers, shops, and a
+              style feed, built for Nigeria by {SITE.company}.
             </p>
           </div>
 
@@ -103,7 +144,7 @@ export default function HomePage() {
               Real screens from Okrikah
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-slate sm:text-base">
-              Home discovery, browse filters, seller onboarding, and the community feed —
+              Home discovery, browse filters, seller onboarding, and the community feed,
               captured from the live iOS build.
             </p>
           </div>
@@ -118,6 +159,31 @@ export default function HomePage() {
                   priority={index < 2}
                 />
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="seller-questions" className="scroll-mt-20 border-b border-line bg-surface">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-5 sm:py-20">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+              Seller questions
+            </p>
+            <h2 className="mt-3 font-display text-[1.75rem] font-semibold tracking-tight text-ink sm:text-4xl">
+              Answers shoppers and sellers look for
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate sm:text-base">
+              Clear answers about selling thriftwear, wigs, bags, and shoes on Ọkrikah in Nigeria.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 sm:mt-12 lg:grid-cols-2">
+            {SELLER_QUESTIONS.map((item) => (
+              <article key={item.question} className="min-w-0 border-t border-line pt-5">
+                <h3 className="text-lg font-semibold text-ink">{item.question}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate sm:text-base">{item.answer}</p>
+              </article>
             ))}
           </div>
         </div>

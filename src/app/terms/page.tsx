@@ -1,16 +1,25 @@
 import type { Metadata } from 'next';
+import { BreadcrumbJsonLd } from '@/components/BreadcrumbJsonLd';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
-  description: `Terms of use for the ${SITE.name} fashion marketplace, owned by ${SITE.owner}.`,
+  description: `Terms of use for the ${SITE.brandName} fashion marketplace on okrikah.com and okrikah.shop, owned by ${SITE.owner}.`,
   authors: [{ name: SITE.owner }],
   creator: SITE.owner,
+  alternates: { canonical: '/terms' },
+  openGraph: {
+    title: `Terms & Conditions · ${SITE.brandName}`,
+    description: `Terms of use for buying and selling on ${SITE.brandName}.`,
+    url: '/terms',
+    type: 'website',
+  },
 };
 
 export default function TermsPage() {
   return (
     <div className="border-b border-line bg-surface">
+      <BreadcrumbJsonLd items={[{ name: 'Terms & Conditions', path: '/terms' }]} />
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-5 sm:py-16">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">Legal</p>
         <h1 className="mt-3 font-display text-[2rem] font-semibold tracking-tight text-ink sm:text-4xl">

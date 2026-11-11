@@ -1,33 +1,28 @@
 import type { MetadataRoute } from 'next';
-import { getSiteUrl } from '@/lib/site';
+import { getSiteUrl, SITE, SITE_PAGES } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
+  const lastModified = new Date(SITE.updated);
 
-  return [
-    {
-      url: siteUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${siteUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${siteUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${siteUrl}/account-deletion`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-  ];
+  return SITE_PAGES.map((page) => {
+    const url = page.path === '/' ? siteUrl : `${siteUrl}${page.path}`;
+
+    if (page.path === '/') {
+      return {
+        url,
+        lastModified,
+        changeFrequency: page.changeFrequency,
+        priority: page.priority,
+        images: [`${siteUrl}/images/marketing-hero.jpg`],
+      };
+    }
+
+    return {
+      url,
+      lastModified,
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+    };
+  });
 }

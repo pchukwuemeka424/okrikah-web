@@ -15,7 +15,7 @@ export function SiteFooter() {
             height={42}
             className="h-8 w-auto sm:h-9"
           />
-          <p className="max-w-sm text-sm leading-relaxed text-slate">{SITE.description}</p>
+          <p className="max-w-sm text-sm leading-relaxed text-slate">{SITE.longDescription}</p>
           <StoreBadges />
         </div>
 

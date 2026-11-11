@@ -35,20 +35,25 @@ npm start
 Create `website/.env.local`:
 
 ```
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_SITE_URL=https://www.okrikah.com
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your_search_console_token
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 NEXT_PUBLIC_APP_STORE_URL=https://apps.apple.com/ca/app/okrikah/id6829230872
 NEXT_PUBLIC_PLAY_STORE_URL=https://play.google.com/store/apps/details?id=com.okrikah.app&hl=en
 ```
 
+Canonical host defaults to `https://www.okrikah.com` (apex `okrikah.com` redirects there). Alias domains `okrikah.shop` and `okrikah.app` are listed in JSON-LD `sameAs`. Set `NEXT_PUBLIC_SITE_URL` if your production host differs.
+
+After deploy, verify ownership in [Google Search Console](https://search.google.com/search-console) for `okrikah.com`, then submit `https://www.okrikah.com/sitemap.xml`.
+
 Account deletion uses the `web-delete-account` Edge Function (checks the email exists, then confirmation popup, no verification code).
 
 Point the Expo app at the hosted legal pages with:
 
 ```
-EXPO_PUBLIC_PRIVACY_URL=https://your-domain.com/privacy
-EXPO_PUBLIC_TERMS_URL=https://your-domain.com/terms
+EXPO_PUBLIC_PRIVACY_URL=https://www.okrikah.com/privacy
+EXPO_PUBLIC_TERMS_URL=https://www.okrikah.com/terms
 ```
 
 ## Design notes
